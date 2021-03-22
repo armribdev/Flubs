@@ -33,4 +33,9 @@ public class SpawnerController : MonoBehaviour
             stock--;
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawIcon(transform.position, "portal.png", true);
+    }
 }
