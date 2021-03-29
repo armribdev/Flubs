@@ -154,3 +154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 50
+  slopeCheckDistance: 100
+  maxFlipAngle: 20
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
