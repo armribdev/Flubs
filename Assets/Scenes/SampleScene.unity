@@ -191,7 +191,16 @@ MonoBehaviour:
       bevelSize: 0
       spriteIndex: 0
       corner: 1
-    - position: {x: 7, y: -2, z: 0}
+    - position: {x: 6.875929, y: -2.427455, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+    - position: {x: 9.195484, y: -0.8572042, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -281,8 +290,8 @@ SpriteShapeRenderer:
   - {fileID: 0}
   - {fileID: 0}
   m_LocalAABB:
-    m_Center: {x: -0.53619766, y: -2.75, z: -0.0003001}
-    m_Extent: {x: 10.470456, y: 2.75, z: 0.0003001}
+    m_Center: {x: -0.63234234, y: -2.6917295, z: -0.0003501}
+    m_Extent: {x: 10.374311, y: 2.8082705, z: 0.0003501}
 --- !u!4 &342871269
 Transform:
   m_ObjectHideFlags: 0
@@ -348,38 +357,43 @@ PolygonCollider2D:
       - {x: 3.0801136, y: -2.5293198}
       - {x: 3.3878877, y: -2.6110082}
       - {x: 4.4266267, y: -2.8867068}
-      - {x: 4.0966144, y: -2.920224}
-      - {x: 4.692859, y: -2.6234279}
-      - {x: 5.2465143, y: -2.3478322}
-      - {x: 5.80017, y: -2.0722365}
-      - {x: 6.3964143, y: -1.7754408}
-      - {x: 7.16159, y: -1.3945551}
-      - {x: 7.635487, y: -2.105926}
-      - {x: 7.956279, y: -2.5871143}
-      - {x: 8.254158, y: -3.0339332}
-      - {x: 8.552038, y: -3.480752}
-      - {x: 8.87283, y: -3.9619412}
-      - {x: 9.878203, y: -5.47}
-      - {x: 8.0657425, y: -5.47}
-      - {x: 7.0328536, y: -5.47}
-      - {x: 5.9999647, y: -5.47}
-      - {x: 4.967076, y: -5.47}
-      - {x: 3.9341865, y: -5.47}
-      - {x: 3.5133786, y: -5.469999}
-      - {x: 2.9012976, y: -5.469999}
-      - {x: 1.8684086, y: -5.469999}
-      - {x: 0.83551955, y: -5.469999}
-      - {x: -0.19736946, y: -5.469999}
-      - {x: -1.2302585, y: -5.469999}
-      - {x: -2.2631474, y: -5.469999}
-      - {x: -3.2960362, y: -5.469999}
-      - {x: -4.328925, y: -5.469999}
-      - {x: -4.9410076, y: -5.47}
-      - {x: -5.361813, y: -5.47}
-      - {x: -6.394702, y: -5.47}
-      - {x: -7.427591, y: -5.47}
-      - {x: -8.46048, y: -5.47}
-      - {x: -9.493369, y: -5.47}
+      - {x: 4.148633, y: -2.8981261}
+      - {x: 4.814897, y: -2.661286}
+      - {x: 5.4335704, y: -2.441364}
+      - {x: 6.052243, y: -2.2214422}
+      - {x: 6.718506, y: -1.9846028}
+      - {x: 6.6124516, y: -2.038251}
+      - {x: 6.9994597, y: -1.7762604}
+      - {x: 7.7181897, y: -1.2897084}
+      - {x: 8.105197, y: -1.0277185}
+      - {x: 9.709179, y: 0.058115482}
+      - {x: 9.6179, y: -1.8766917}
+      - {x: 9.585248, y: -2.5686612}
+      - {x: 9.554929, y: -3.2112055}
+      - {x: 9.52461, y: -3.8537493}
+      - {x: 9.491958, y: -4.54572}
+      - {x: 9.448345, y: -5.47}
+      - {x: 8.523037, y: -5.47}
+      - {x: 7.5221252, y: -5.47}
+      - {x: 6.5212135, y: -5.47}
+      - {x: 5.520302, y: -5.47}
+      - {x: 4.51939, y: -5.47}
+      - {x: 3.852116, y: -5.469999}
+      - {x: 3.5184796, y: -5.469999}
+      - {x: 2.517568, y: -5.469999}
+      - {x: 1.5166566, y: -5.469999}
+      - {x: 0.51574516, y: -5.469999}
+      - {x: -0.4851663, y: -5.469999}
+      - {x: -1.4860778, y: -5.469999}
+      - {x: -2.4869893, y: -5.469999}
+      - {x: -3.4879007, y: -5.469999}
+      - {x: -4.4888124, y: -5.469999}
+      - {x: -4.8224497, y: -5.47}
+      - {x: -5.489725, y: -5.47}
+      - {x: -6.490637, y: -5.47}
+      - {x: -7.4915485, y: -5.47}
+      - {x: -8.49246, y: -5.47}
+      - {x: -9.49337, y: -5.47}
 --- !u!1 &383344610
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +592,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &519420030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -857,6 +871,118 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1820842580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1820842583}
+  - component: {fileID: 1820842582}
+  - component: {fileID: 1820842581}
+  m_Layer: 0
+  m_Name: NetworkManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1820842581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820842580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b84c2d8dfe509a34fb59e2b81f8e1319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MessageBufferSize: 5120
+  MaxConnections: 100
+  MaxSentMessageQueueSize: 128
+  ConnectAddress: 127.0.0.1
+  ConnectPort: 7777
+  ServerListenPort: 7777
+  ServerWebsocketListenPort: 8887
+  SupportWebsocket: 0
+  Channels: []
+  UseMLAPIRelay: 0
+  MLAPIRelayAddress: 184.72.104.138
+  MLAPIRelayPort: 8888
+  MessageSendMode: 0
+--- !u!114 &1820842582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820842580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 593a2fe42fa9d37498c96f9a383b6521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DontDestroy: 1
+  RunInBackground: 1
+  LogLevel: 1
+  NetworkConfig:
+    ProtocolVersion: 0
+    NetworkTransport: {fileID: 1820842581}
+    RegisteredScenes:
+    - SampleScene
+    AllowRuntimeSceneChanges: 0
+    NetworkPrefabs:
+    - Prefab: {fileID: 1429055666095334654, guid: 6561aee58d43bba499066f4c8c350c91,
+        type: 3}
+      PlayerPrefab: 1
+    PlayerPrefabHash:
+      id: 0
+    CreatePlayerPrefab: 1
+    ReceiveTickrate: 64
+    NetworkTickIntervalSec: 0.05
+    MaxReceiveEventsPerTickRate: 500
+    EventTickrate: 64
+    ClientConnectionBufferTimeout: 10
+    ConnectionApproval: 0
+    ConnectionData: 
+    EnableTimeResync: 0
+    TimeResyncInterval: 30
+    EnableNetworkVariable: 1
+    EnsureNetworkVariableLengthSafety: 0
+    EnableSceneManagement: 1
+    ForceSamePrefabs: 1
+    UsePrefabSync: 0
+    RecycleNetworkIds: 1
+    NetworkIdRecycleDelay: 120
+    RpcHashSize: 0
+    LoadSceneTimeOut: 120
+    EnableMessageBuffering: 1
+    MessageBufferTimeout: 20
+    EnableNetworkLogs: 1
+  references:
+    version: 1
+    00000000:
+      type: {class: NullableBoolSerializable, ns: MLAPI.Configuration, asm: Unity.Multiplayer.MLAPI.Runtime}
+      data:
+        Value: 5086807472835045791
+--- !u!4 &1820842583
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820842580}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1974639382
 GameObject:
   m_ObjectHideFlags: 0
