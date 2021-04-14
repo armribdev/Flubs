@@ -53,13 +53,13 @@ public class CameraMovement : MonoBehaviour
     {
         // if (cam.orthographicSize == maxCamSize) return;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             dragOrigin = cam.ScreenToWorldPoint(Input.mousePosition);
             targetCamSize = cam.orthographicSize;
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1))
         {
             Vector3 diff = dragOrigin - cam.ScreenToWorldPoint(Input.mousePosition);
             // cam.transform.position = ClampCamera(cam.transform.position + diff);
