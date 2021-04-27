@@ -46,6 +46,7 @@ public class Flub : MonoBehaviour
                 break;
             case PowerUp.Stop:
                 gameObject.layer = LayerMask.NameToLayer("Environnement");
+                GameObject.Find("GameManager").GetComponent<GameManager>().stoppedFlubs ++;
                 break;
             default:
                 break;
@@ -54,9 +55,11 @@ public class Flub : MonoBehaviour
 
     public void die() {
         Destroy(gameObject);
+        GameObject.Find("GameManager").GetComponent<GameManager>().deadFlubs ++;
     }
 
     public void exit() {
         Destroy(gameObject);
+        GameObject.Find("GameManager").GetComponent<GameManager>().exitedFlubs ++;
     }
 }

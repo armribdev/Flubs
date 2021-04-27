@@ -8,7 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(Flub))]
 public class FlubMovement : MonoBehaviour
 {
-    enum Direction {Left , Right};
+    public enum Direction {Left , Right};
     
     [SerializeField]
     private float moveSpeed;
@@ -70,7 +70,7 @@ public class FlubMovement : MonoBehaviour
         rb.velocity = Vector3.SmoothDamp(rb.velocity, target, ref velocity, .05f);
     }
 
-    private void Flip()
+    public void Flip()
     {
         direction = direction == Direction.Right ? Direction.Left : Direction.Right;
         Vector3 newLocalScale = transform.localScale;

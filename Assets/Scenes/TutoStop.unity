@@ -136,12 +136,12 @@ PrefabInstance:
     - target: {fileID: 5964235083818580307, guid: 9321fac64c2945b4aa6faf17927ce1e0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.14
+      value: 6.6
       objectReference: {fileID: 0}
     - target: {fileID: 5964235083818580307, guid: 9321fac64c2945b4aa6faf17927ce1e0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.14
+      value: 11.1
       objectReference: {fileID: 0}
     - target: {fileID: 5964235083818580307, guid: 9321fac64c2945b4aa6faf17927ce1e0,
         type: 3}
@@ -5576,7 +5576,7 @@ GameObject:
   - component: {fileID: 1551940268}
   - component: {fileID: 1551940267}
   - component: {fileID: 1551940269}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: sortie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5779,6 +5779,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5964235083818580306, guid: 9321fac64c2945b4aa6faf17927ce1e0,
+        type: 3}
+      propertyPath: orientation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5964235083818580307, guid: 9321fac64c2945b4aa6faf17927ce1e0,
         type: 3}
       propertyPath: m_RootOrder

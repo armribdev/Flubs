@@ -4,11 +4,31 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public bool levelOver;
+    public int flubToInvoke;
+    public int stoppedFlubs;
+    public int deadFlubs;
+    public int exitedFlubs;
+
+    public SpawnerController[] spawnerControllers;
+
     void Start()
     {
+        flubToInvoke = 0;
+        levelOver = false;
+        foreach(SpawnerController spawnerController in spawnerControllers) {
+            flubToInvoke += spawnerController.stock;
+        }
     }
 
-    public void PrintTest() {
-        Debug.Log("test!");
+    void Update()
+    {
+        if (levelCompleted())
+            levelOver = true;
     }
+
+    public bool levelCompleted() {
+        return stoppedFlubs + deadFlubs + exitedFlubs == flubToInvoke;
+    }
+
 }
