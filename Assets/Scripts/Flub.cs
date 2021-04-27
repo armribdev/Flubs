@@ -29,6 +29,13 @@ public class Flub : MonoBehaviour
         animator.SetBool("selected", s);
     }
 
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Exit")) {
+            exit();
+        }
+    }
+
     public void setPowerUp(PowerUp pu) {
         powerUp = pu;
         animator.SetInteger("powerUp", (int)pu);

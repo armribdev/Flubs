@@ -57,10 +57,12 @@ public class FlubMovement : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        float horizontalMovement = moveSpeed * Time.deltaTime;
-        if (direction == Direction.Left) horizontalMovement *= -1;
-        if (flub.powerUp == Flub.PowerUp.None)
-            Move(horizontalMovement);
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Environnement")) {
+            float horizontalMovement = moveSpeed * Time.deltaTime;
+            if (direction == Direction.Left) horizontalMovement *= -1;
+            if (flub.powerUp == Flub.PowerUp.None)
+                Move(horizontalMovement);
+        }
     }
 
     private void Move(float horizontalMovement) {
@@ -113,14 +115,11 @@ public class FlubMovement : MonoBehaviour
         if (!hit && grounded) {
             grounded = false;
             lastGroudedHeight = transform.position.y;
-            Debug.Log(lastGroudedHeight);
         }
 
         if (hit && !grounded) {
             grounded = true;
             float fallHeight = lastGroudedHeight - transform.position.y;
-            Debug.Log(transform.position.y);
-            Debug.Log(fallHeight);
             if (fallHeight >= maxFallHeightWithoutDying) {
                 flub.die();
             }
