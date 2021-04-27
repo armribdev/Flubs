@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(CapsuleCollider2D))]
+[RequireComponent(typeof(Flub))]
 public class FlubMovement : MonoBehaviour
 {
     enum Direction {Left , Right};
@@ -15,6 +16,9 @@ public class FlubMovement : MonoBehaviour
     private float slopeCheckDistance;
     private Animator animator;
 
+    private bool grounded;
+    private float lastGroudedHeight;
+    public float maxFallHeightWithoutDying;
 
     [SerializeField]
     float maxFlipAngle;
@@ -33,6 +37,8 @@ public class FlubMovement : MonoBehaviour
     void Awake()
     {
         direction = Direction.Right;
+        grounded = false;
+        lastGroudedHeight = transform.position.y;
     }
     void Start()
     {
@@ -45,6 +51,8 @@ public class FlubMovement : MonoBehaviour
     void FixedUpdate()
     {
         SlopeCheck();
+        SideCheck();
+        FloorCheck();
     }
 
     void OnCollisionStay2D(Collision2D collision)
@@ -81,6 +89,41 @@ public class FlubMovement : MonoBehaviour
             Debug.DrawRay(hit.point, hit.normal, Color.green);
             float angle = Vector2.SignedAngle(hit.normal, Vector2.up);
             if ((direction == Direction.Right && angle < -maxFlipAngle) || (direction == Direction.Left && angle > maxFlipAngle)) Flip();
+        }
+    }
+
+    private void SideCheck()
+    {
+        float x = direction == Direction.Right ? cc.bounds.max.x : cc.bounds.min.x;
+        Vector2 dir = direction == Direction.Right ? Vector2.right : Vector2.left;
+        Vector2 origin = new Vector2(x, cc.bounds.center.y);
+        RaycastHit2D hit = Physics2D.Raycast(origin, dir, .05f,  groundLayerMask);
+        Debug.DrawRay(origin, dir * .05f, Color.red);
+        
+        if (hit)
+            Flip();
+    }
+
+    private void FloorCheck()
+    {
+        Vector2 origin = new Vector2(cc.bounds.center.x, cc.bounds.min.y);
+        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, .1f,  groundLayerMask);
+        Debug.DrawRay(origin, Vector2.down * .1f, Color.red);
+        
+        if (!hit && grounded) {
+            grounded = false;
+            lastGroudedHeight = transform.position.y;
+            Debug.Log(lastGroudedHeight);
+        }
+
+        if (hit && !grounded) {
+            grounded = true;
+            float fallHeight = lastGroudedHeight - transform.position.y;
+            Debug.Log(transform.position.y);
+            Debug.Log(fallHeight);
+            if (fallHeight >= maxFallHeightWithoutDying) {
+                flub.die();
+            }
         }
     }
 }

@@ -38,10 +38,18 @@ public class Flub : MonoBehaviour
                 gameObject.layer = LayerMask.NameToLayer("Controllable");
                 break;
             case PowerUp.Stop:
-                gameObject.layer = LayerMask.NameToLayer("Default");
+                gameObject.layer = LayerMask.NameToLayer("Environnement");
                 break;
             default:
                 break;
         }
+    }
+
+    public void die() {
+        Destroy(gameObject);
+    }
+
+    public void exit() {
+        Destroy(gameObject);
     }
 }
