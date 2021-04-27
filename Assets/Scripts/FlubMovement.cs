@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(CapsuleCollider2D))]
 public class FlubMovement : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class FlubMovement : MonoBehaviour
     private float moveSpeed;
     [SerializeField]
     private float slopeCheckDistance;
+    private Animator animator;
+
 
     [SerializeField]
     float maxFlipAngle;
@@ -24,6 +27,8 @@ public class FlubMovement : MonoBehaviour
     private Rigidbody2D rb;
     private CapsuleCollider2D cc;
     private Vector3 velocity = Vector3.zero;
+
+    private Flub flub;
     
     void Awake()
     {
@@ -33,6 +38,8 @@ public class FlubMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         cc = GetComponent<CapsuleCollider2D>();
+        flub = GetComponent<Flub>();
+        animator = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -44,7 +51,8 @@ public class FlubMovement : MonoBehaviour
     {
         float horizontalMovement = moveSpeed * Time.deltaTime;
         if (direction == Direction.Left) horizontalMovement *= -1;
-        Move(horizontalMovement);
+        if (flub.powerUp == Flub.PowerUp.None)
+            Move(horizontalMovement);
     }
 
     private void Move(float horizontalMovement) {
@@ -55,6 +63,9 @@ public class FlubMovement : MonoBehaviour
     private void Flip()
     {
         direction = direction == Direction.Right ? Direction.Left : Direction.Right;
+        Vector3 newLocalScale = transform.localScale;
+        newLocalScale.x *= -1;
+        transform.localScale= newLocalScale;
         Debug.Log("Fliped !");
     }
 

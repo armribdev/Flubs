@@ -12,8 +12,7 @@ public class CameraMovement : MonoBehaviour
     private float zoomStep, minCamSize;
     private float maxCamSize;
 
-    [SerializeField]
-    SpriteShapeRenderer mapRenderer;
+    public SpriteShapeRenderer mapRenderer;
 
     private float mapMinX, mapMaxX, mapMinY, mapMaxY;
 
@@ -23,6 +22,8 @@ public class CameraMovement : MonoBehaviour
 
     private void Awake()
     {
+        mapRenderer = Camera.main.GetComponent<CameraMovement>().mapRenderer;
+
         mapMinX = mapRenderer.transform.position.x - mapRenderer.bounds.size.x / 2f;
         mapMaxX = mapRenderer.transform.position.x + mapRenderer.bounds.size.x / 2f;
 
@@ -53,13 +54,13 @@ public class CameraMovement : MonoBehaviour
     {
         // if (cam.orthographicSize == maxCamSize) return;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             dragOrigin = cam.ScreenToWorldPoint(Input.mousePosition);
             targetCamSize = cam.orthographicSize;
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1))
         {
             Vector3 diff = dragOrigin - cam.ScreenToWorldPoint(Input.mousePosition);
             // cam.transform.position = ClampCamera(cam.transform.position + diff);

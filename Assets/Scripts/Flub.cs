@@ -1,0 +1,47 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+[RequireComponent(typeof(Animator))]
+public class Flub : MonoBehaviour
+{
+    public enum PowerUp {None, Dig, Stop};
+
+    [SerializeField] private bool selected;
+    private Animator animator;
+
+    public PowerUp powerUp;
+
+    void Awake()
+    {
+        powerUp = PowerUp.None;
+        selected = false;
+    }
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
+    public void select(bool s) {
+        selected = s;
+        animator.SetBool("selected", s);
+    }
+
+    public void setPowerUp(PowerUp pu) {
+        powerUp = pu;
+        animator.SetInteger("powerUp", (int)pu);
+
+        switch(pu) {
+            case PowerUp.None:
+                gameObject.layer = LayerMask.NameToLayer("Controllable");
+                break;
+            case PowerUp.Stop:
+                gameObject.layer = LayerMask.NameToLayer("Default");
+                break;
+            default:
+                break;
+        }
+    }
+}
