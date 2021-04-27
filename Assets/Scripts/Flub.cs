@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Flub : MonoBehaviour
 {
+    public bool selected;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        selected = false;
     }
 
     // Update is called once per frame

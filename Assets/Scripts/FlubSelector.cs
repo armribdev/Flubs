@@ -57,6 +57,7 @@ public class FlubSelector : MonoBehaviour
             foreach (Collider2D collider2D in collider2DArray) {
                 Flub flub = collider2D.GetComponent<Flub>();
                 if (flub != null) {
+                    flub.selected = true;
                     selectedFlubs.Add(flub);
                     Debug.Log(flub);
                 }
