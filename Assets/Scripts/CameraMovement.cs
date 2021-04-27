@@ -12,8 +12,7 @@ public class CameraMovement : MonoBehaviour
     private float zoomStep, minCamSize;
     private float maxCamSize;
 
-    [SerializeField]
-    SpriteShapeRenderer mapRenderer;
+    public SpriteShapeRenderer mapRenderer;
 
     private float mapMinX, mapMaxX, mapMinY, mapMaxY;
 
@@ -23,6 +22,8 @@ public class CameraMovement : MonoBehaviour
 
     private void Awake()
     {
+        mapRenderer = Camera.main.GetComponent<CameraMovement>().mapRenderer;
+
         mapMinX = mapRenderer.transform.position.x - mapRenderer.bounds.size.x / 2f;
         mapMaxX = mapRenderer.transform.position.x + mapRenderer.bounds.size.x / 2f;
 

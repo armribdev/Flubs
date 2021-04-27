@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Camera))]
 public class FlubSelector : MonoBehaviour
@@ -26,11 +27,19 @@ public class FlubSelector : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) {
+            
+            if(EventSystem.current.IsPointerOverGameObject())
+                return;
+
             startPos = cam.ScreenToWorldPoint(Input.mousePosition);
             selectionAreaTransform.gameObject.SetActive(true);
         }
 
         if (Input.GetMouseButton(0)) {
+
+            if(EventSystem.current.IsPointerOverGameObject())
+                return;
+
             Vector3 currentPos = cam.ScreenToWorldPoint(Input.mousePosition);
             Vector3 lowerLeft = new Vector3(
                 Mathf.Min(startPos.x, currentPos.x),
@@ -48,6 +57,7 @@ public class FlubSelector : MonoBehaviour
         }
 
         if (Input.GetMouseButtonUp(0)) {
+            
             selectionAreaTransform.gameObject.SetActive(false);
 
             Collider2D[] collider2DArray = Physics2D.OverlapAreaAll(startPos, cam.ScreenToWorldPoint(Input.mousePosition));
@@ -67,4 +77,11 @@ public class FlubSelector : MonoBehaviour
             }
         }
     }
+
+    public void givePowerUp(int powerUp) {
+        foreach(Flub flub in selectedFlubs) {
+            flub.setPowerUp((Flub.PowerUp)powerUp);
+        }
+    }
+
 }

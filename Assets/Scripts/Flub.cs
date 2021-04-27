@@ -6,12 +6,16 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Flub : MonoBehaviour
 {
+    public enum PowerUp {None, Dig, Stop};
+
     [SerializeField] private bool selected;
     private Animator animator;
 
-    // Start is called before the first frame update
+    public PowerUp powerUp;
+
     void Awake()
     {
+        powerUp = PowerUp.None;
         selected = false;
     }
 
@@ -20,14 +24,24 @@ public class Flub : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void select(bool s) {
         selected = s;
         animator.SetBool("selected", s);
+    }
+
+    public void setPowerUp(PowerUp pu) {
+        powerUp = pu;
+        animator.SetInteger("powerUp", (int)pu);
+
+        switch(pu) {
+            case PowerUp.None:
+                gameObject.layer = LayerMask.NameToLayer("Controllable");
+                break;
+            case PowerUp.Stop:
+                gameObject.layer = LayerMask.NameToLayer("Default");
+                break;
+            default:
+                break;
+        }
     }
 }
