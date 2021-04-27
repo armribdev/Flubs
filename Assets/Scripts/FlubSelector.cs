@@ -52,12 +52,15 @@ public class FlubSelector : MonoBehaviour
 
             Collider2D[] collider2DArray = Physics2D.OverlapAreaAll(startPos, cam.ScreenToWorldPoint(Input.mousePosition));
 
+            foreach(Flub flub in selectedFlubs) {
+                flub.select(false);
+            }
             selectedFlubs.Clear();
 
             foreach (Collider2D collider2D in collider2DArray) {
                 Flub flub = collider2D.GetComponent<Flub>();
                 if (flub != null) {
-                    flub.selected = true;
+                    flub.select(true);
                     selectedFlubs.Add(flub);
                     Debug.Log(flub);
                 }
