@@ -8,7 +8,7 @@ public class Flub : MonoBehaviour
 {
     public enum PowerUp {None, Dig, Stop};
 
-    [SerializeField] private bool selected;
+    public bool selected;
     private Animator animator;
 
     public PowerUp powerUp;

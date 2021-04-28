@@ -27,9 +27,13 @@ public class FlubSelector : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) {
+
+            Debug.Log("Testr");
             
             if(EventSystem.current.IsPointerOverGameObject())
                 return;
+
+            Debug.Log("Testrrr");
 
             startPos = cam.ScreenToWorldPoint(Input.mousePosition);
             selectionAreaTransform.gameObject.SetActive(true);
@@ -79,9 +83,17 @@ public class FlubSelector : MonoBehaviour
     }
 
     public void givePowerUp(int powerUp) {
-        foreach(Flub flub in selectedFlubs) {
-            flub.setPowerUp((Flub.PowerUp)powerUp);
+        GameObject[] gos = GameObject.FindObjectsOfType(typeof(GameObject)) as GameObject[];
+        foreach(GameObject go in gos)
+        {
+            if(go.layer == LayerMask.NameToLayer("Controllables"))
+            {
+                Flub flub = go.GetComponent<Flub>();
+                if (flub.selected)
+                    flub.setPowerUp((Flub.PowerUp)powerUp);
+            }
         }
+        
     }
 
 }
