@@ -197,6 +197,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7151883211679767945, guid: c921b0b14c5741842b8c413bbbbb4f15,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1779162603}
+    - target: {fileID: 7151883211679767945, guid: c921b0b14c5741842b8c413bbbbb4f15,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: givePowerUp
+      objectReference: {fileID: 0}
     - target: {fileID: 7151883211679767958, guid: c921b0b14c5741842b8c413bbbbb4f15,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -256,6 +266,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151883212477108281, guid: c921b0b14c5741842b8c413bbbbb4f15,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1779162603}
+    - target: {fileID: 7151883212477108281, guid: c921b0b14c5741842b8c413bbbbb4f15,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: givePowerUp
       objectReference: {fileID: 0}
     - target: {fileID: 7151883213765361074, guid: c921b0b14c5741842b8c413bbbbb4f15,
         type: 3}
@@ -398,7 +418,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &404133287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6550,6 +6570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74778d27dac0a154b83beeedd60bc3d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AffichageFin: {fileID: 404133286}
   endText: {fileID: 1219418691}
   levelOver: 0
   flubToInvoke: 0

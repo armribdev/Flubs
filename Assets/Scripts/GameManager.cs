@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject AffichageFin;
     public Text endText;
 
     public bool levelOver;
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
             {
                 endTime = Time.timeSinceLevelLoad;
                 endText.text = "Fin de la partie !\nVous avez sauvés " + exitedFlubs.ToString() + " Flubs sur " + flubToInvoke.ToString();
+                AffichageFin.SetActive(true);
             }
             if (Time.timeSinceLevelLoad - endTime > 5)  // On attend 5s avant de revenir au menu
                 SceneManager.LoadScene(0);
