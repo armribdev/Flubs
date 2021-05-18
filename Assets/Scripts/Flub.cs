@@ -6,11 +6,13 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Flub : MonoBehaviour
 {
+    public enum Type {Blue, Red};
     public enum PowerUp {None, Dig, Stop};
 
     public bool selected;
     private Animator animator;
 
+    public Type type;
     public PowerUp powerUp;
 
     void Awake()
