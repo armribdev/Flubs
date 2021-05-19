@@ -14,23 +14,13 @@ public class CameraMovement : MonoBehaviour
     private float zoomStep, minCamSize;
     private float maxCamSize;
 
-    private float mapMinX, mapMaxX, mapMinY, mapMaxY;
-
     private Vector3 dragOrigin;
 
     private float targetCamSize;
 
     private void Awake()
     {
-        
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        
-        mapMinX = - gm.levelHeight / 2;
-        mapMaxX =   gm.levelHeight / 2;
-
-        mapMinY = - gm.levelWidth / 2;
-        mapMaxY =   gm.levelWidth / 2;
-
     }
 
     void Start()
@@ -50,8 +40,6 @@ public class CameraMovement : MonoBehaviour
 
     private void PanCamera()
     {
-        // if (cam.orthographicSize == maxCamSize) return;
-
         if (Input.GetMouseButtonDown(1))
         {
             dragOrigin = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -61,8 +49,7 @@ public class CameraMovement : MonoBehaviour
         if (Input.GetMouseButton(1))
         {
             Vector3 diff = dragOrigin - cam.ScreenToWorldPoint(Input.mousePosition);
-            // cam.transform.position = ClampCamera(cam.transform.position + diff);
-            cam.transform.position += diff;
+            cam.transform.position = ClampCamera(cam.transform.position + diff);
         }
     }
 
@@ -80,7 +67,7 @@ public class CameraMovement : MonoBehaviour
         if (Mathf.Abs(cam.orthographicSize - targetCamSize) > .001f)
         {
             cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetCamSize, Time.deltaTime * 2.0f);
-            //cam.transform.position = ClampCamera(cam.transform.position);
+            cam.transform.position = ClampCamera(cam.transform.position);
         }
         else
         {
@@ -102,11 +89,11 @@ public class CameraMovement : MonoBehaviour
     {
         float camHeight = cam.orthographicSize;
         float camWidth = camHeight * cam.aspect;
-
-        float minX = mapMinX + camWidth;
-        float maxX = mapMaxX - camWidth;
-        float minY = mapMinY + camHeight;
-        float maxY = mapMaxY - camHeight;
+        
+        float minX = - gm.levelWidth  / 2 + camWidth;
+        float maxX =   gm.levelWidth  / 2 - camWidth;
+        float minY = - gm.levelHeight / 2 + camHeight;
+        float maxY =   gm.levelHeight / 2 - camHeight;
 
         float newX = Mathf.Clamp(targetPosition.x, minX, maxX);
         float newY = Mathf.Clamp(targetPosition.y, minY, maxY);
