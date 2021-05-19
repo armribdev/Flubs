@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public int deadFlubs;
     public int exitedFlubs;
 
+    public float levelWidth, levelHeight;
+
     public SpawnerController[] spawnerControllers;
 
     private float endTime;
@@ -45,6 +47,13 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene(0);
         }
     }
+
+    void OnDrawGizmos()
+{
+    // Green
+    Gizmos.color = new Color(0.0f, 1.0f, 0.0f);
+    Gizmos.DrawWireCube(new Vector3(0f, 0f / 2, 0.01f), new Vector3(levelWidth, levelHeight, 0.01f));
+}
 
     public bool levelCompleted() {
         return stoppedFlubs + deadFlubs + exitedFlubs == flubToInvoke;

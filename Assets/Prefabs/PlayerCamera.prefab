@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7702066863060651788}
   - component: {fileID: 418355026707948443}
   - component: {fileID: 6896406830577548014}
+  - component: {fileID: 6799425703942800723}
   m_Layer: 0
   m_Name: PlayerCamera
   m_TagString: MainCamera
@@ -99,7 +100,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomStep: 1
   minCamSize: 1
-  mapRenderer: {fileID: 0}
 --- !u!114 &6896406830577548014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,3 +117,17 @@ MonoBehaviour:
   visible: 0
   m_AssetId: 
   hasSpawned: 0
+--- !u!114 &6799425703942800723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4385792893273054288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a700eb40e1936a64cb8bf3b768faca9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectionAreaPrefab: {fileID: 8493073036588256806, guid: 7ac21de8cb726b741bd55135d49deb4e,
+    type: 3}

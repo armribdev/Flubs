@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selected: 0
+  type: 0
   powerUp: 0
 --- !u!114 &-2225923214831351093
 MonoBehaviour:

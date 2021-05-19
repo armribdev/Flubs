@@ -7,6 +7,7 @@ public class SpawnerController : MonoBehaviour
     private float spawningDeltaTime;
 
     public int stock;
+    public Flub.Type type;
 
     [SerializeField]
     private FlubMovement.Direction orientation;
@@ -32,6 +33,7 @@ public class SpawnerController : MonoBehaviour
         if (stock > 0)
         {
             GameObject go = Instantiate(prefab, transform.position, transform.rotation);
+            go.GetComponent<Flub>().type = type;
             if (orientation == FlubMovement.Direction.Left)
                 go.GetComponent<FlubMovement>().Flip();
             stock--;

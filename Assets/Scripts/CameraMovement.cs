@@ -8,11 +8,11 @@ public class CameraMovement : MonoBehaviour
 {
     private Camera cam;
 
+    private GameManager gm;
+
     [SerializeField]
     private float zoomStep, minCamSize;
     private float maxCamSize;
-
-    public SpriteShapeRenderer mapRenderer;
 
     private float mapMinX, mapMaxX, mapMinY, mapMaxY;
 
@@ -22,25 +22,23 @@ public class CameraMovement : MonoBehaviour
 
     private void Awake()
     {
-        mapRenderer = Camera.main.GetComponent<CameraMovement>().mapRenderer;
+        
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        
+        mapMinX = - gm.levelHeight / 2;
+        mapMaxX =   gm.levelHeight / 2;
 
-        mapMinX = mapRenderer.transform.position.x - mapRenderer.bounds.size.x / 2f;
-        mapMaxX = mapRenderer.transform.position.x + mapRenderer.bounds.size.x / 2f;
+        mapMinY = - gm.levelWidth / 2;
+        mapMaxY =   gm.levelWidth / 2;
 
-        mapMinY = mapRenderer.transform.position.y - mapRenderer.bounds.size.y / 2f;
-        mapMaxY = mapRenderer.transform.position.y + mapRenderer.bounds.size.y / 2f;
-
-        /*mapMinX = mapRenderer.transform.position.x - 100.0f / 2f;
-        mapMaxX = mapRenderer.transform.position.x + 100.0f / 2f;
-
-        mapMinY = mapRenderer.transform.position.y * cam.aspect - 100.0f / 2f;
-        mapMaxY = mapRenderer.transform.position.y * cam.aspect + 100.0f / 2f;*/
     }
 
     void Start()
     {
+        transform.position = new Vector3(0f, 0f, -10f);
         cam = GetComponent<Camera>();
-        targetCamSize = cam.orthographicSize;
+        
+        targetCamSize = cam.orthographicSize = gm.levelHeight / 2;
         maxCamSize = cam.orthographicSize;
     }
 

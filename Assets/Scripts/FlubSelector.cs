@@ -6,7 +6,8 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(Camera))]
 public class FlubSelector : MonoBehaviour
 {
-    [SerializeField] private Transform selectionAreaTransform;
+    [SerializeField] private GameObject selectionAreaPrefab;
+    private Transform selectionAreaTransform;
 
     private Camera cam;
     private Vector3 startPos;
@@ -15,7 +16,7 @@ public class FlubSelector : MonoBehaviour
     void Awake()
     {
         selectedFlubs = new List<Flub>();
-        selectionAreaTransform.gameObject.SetActive(false);
+        selectionAreaTransform = Instantiate(selectionAreaPrefab, transform.position, transform.rotation).transform;
     }
 
 
