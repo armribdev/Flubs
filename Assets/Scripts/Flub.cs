@@ -31,6 +31,11 @@ public class Flub : MonoBehaviour
         animator.SetBool("selected", s);
     }
 
+    private void OnTriggerEnter2D(Collider2D collider) {
+        if(collider.tag == "NoRedDie" && type != Type.Red) die();
+        if(collider.tag == "NoBlueDie" && type != Type.Blue) die();
+    }
+
     void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Exit")) {
