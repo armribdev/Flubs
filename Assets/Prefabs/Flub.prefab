@@ -158,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 50
   slopeCheckDistance: 100
-  maxFallHeightWithoutDying: 8
+  maxFallHeightWithoutDying: 5
   maxFlipAngle: 20
   groundLayerMask:
     serializedVersion: 2
