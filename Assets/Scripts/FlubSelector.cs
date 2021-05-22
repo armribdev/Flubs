@@ -28,13 +28,9 @@ public class FlubSelector : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) {
-
-            Debug.Log("Testr");
             
             if(EventSystem.current.IsPointerOverGameObject())
                 return;
-
-            Debug.Log("Testrrr");
 
             startPos = cam.ScreenToWorldPoint(Input.mousePosition);
             selectionAreaTransform.gameObject.SetActive(true);

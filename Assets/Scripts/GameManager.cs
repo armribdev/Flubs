@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
 
     public float levelWidth, levelHeight;
 
+    public Flub.Type player1Type, player2Type;
+
     public SpawnerController[] spawnerControllers;
 
     private float endTime;

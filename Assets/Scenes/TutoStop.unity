@@ -6939,6 +6939,8 @@ MonoBehaviour:
   exitedFlubs: 0
   levelWidth: 43
   levelHeight: 20
+  player1Type: 1
+  player2Type: 0
   spawnerControllers:
   - {fileID: 1054534926}
   - {fileID: 1627705160}
