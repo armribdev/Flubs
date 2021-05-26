@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: 2210100842196431620}
   - component: {fileID: 7567545832785636852}
   - component: {fileID: 4776352862702549759}
-  - component: {fileID: -2225923214831351093}
   - component: {fileID: 2517611424423243696}
+  - component: {fileID: 356314364859413726}
+  - component: {fileID: 608742940146649779}
   m_Layer: 9
   m_Name: Flub
   m_TagString: Untagged
@@ -156,6 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd55286538ddda4f979c2a00a6b416b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   moveSpeed: 50
   slopeCheckDistance: 100
   maxFallHeightWithoutDying: 5
@@ -175,26 +178,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98efa5a3cbf04f0418d0c89b78cd054f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  redAnimatorController: {fileID: 9100000, guid: 7e452a872e52b4e43adac7745c22a88a,
+    type: 2}
+  blueAnimatorController: {fileID: 9100000, guid: c62ad2f1a5c5a69438d5ae6925dfa62a,
+    type: 2}
   selected: 0
   type: 0
   powerUp: 0
---- !u!114 &-2225923214831351093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072461794295784788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NetworkInstanceId: 0
-  PrefabHash: 16914735301293895567
-  PrefabHashGenerator: Slime
-  AlwaysReplicateAsRoot: 0
-  DontDestroyWithOwner: 0
 --- !u!114 &2517611424423243696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,3 +204,40 @@ MonoBehaviour:
   visible: 0
   m_AssetId: 
   hasSpawned: 0
+--- !u!114 &356314364859413726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072461794295784788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 0
+  localPositionSensitivity: 0.01
+  localRotationSensitivity: 0.01
+  localScaleSensitivity: 0.01
+  compressRotation: 0
+  interpolateScale: 1
+  syncScale: 1
+--- !u!114 &608742940146649779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072461794295784788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6f3bf89aa97405989c802ba270f815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 0
+  animator: {fileID: 1072461794295784789}

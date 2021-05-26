@@ -1,18 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Mirror;
+using UnityEditor.Animations;
 
 [RequireComponent(typeof(Animator))]
-public class Flub : MonoBehaviour
+public class Flub : NetworkBehaviour
 {
     public enum Type {Blue, Red};
     public enum PowerUp {None, Dig, Stop};
+
+    public AnimatorController redAnimatorController, blueAnimatorController;
 
     public bool selected;
     private Animator animator;
 
     public Type type;
+    
     public PowerUp powerUp;
 
     void Awake()
@@ -24,6 +28,8 @@ public class Flub : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        //type = Type.Blue;
+        //setType(type);
     }
 
     public void select(bool s) {
@@ -44,6 +50,7 @@ public class Flub : MonoBehaviour
     }
 
     public void setPowerUp(PowerUp pu) {
+        Debug.Log("3");
         powerUp = pu;
         animator.SetInteger("powerUp", (int)pu);
 
@@ -59,6 +66,22 @@ public class Flub : MonoBehaviour
                 break;
         }
     }
+
+    public void setType(Type t) {
+        type = t;
+        NetworkAnimator na = GetComponent<NetworkAnimator>();
+        switch(t) {
+            case Type.Red:
+                na.animator.runtimeAnimatorController = redAnimatorController;
+                break;
+            case Type.Blue:
+                na.animator.runtimeAnimatorController = blueAnimatorController;
+                break;
+            default:
+                break;
+        }
+    }
+
 
     public void die() {
         Destroy(gameObject);

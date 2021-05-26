@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Mirror;
 
-[RequireComponent(typeof(Camera))]
-public class FlubSelector : MonoBehaviour
+public class FlubSelector : NetworkBehaviour
 {
     [SerializeField] private GameObject selectionAreaPrefab;
     private Transform selectionAreaTransform;
@@ -22,7 +22,7 @@ public class FlubSelector : MonoBehaviour
 
     void Start()
     {
-        cam = GetComponent<Camera>();
+        cam = GetComponentInChildren<Camera>();
     }
 
     void Update()
@@ -79,7 +79,19 @@ public class FlubSelector : MonoBehaviour
         }
     }
 
-    public void givePowerUp(int powerUp) {
+
+    public void localGivePowerUp(int powerUp) {
+    
+        Debug.Log("1");
+        
+        CmdGivePowerUp(powerUp);
+    }
+
+    [Command]
+    public void CmdGivePowerUp(int powerUp) {
+
+        Debug.Log("2");
+            
         GameObject[] gos = GameObject.FindObjectsOfType(typeof(GameObject)) as GameObject[];
         foreach(GameObject go in gos)
         {

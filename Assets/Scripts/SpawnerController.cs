@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class SpawnerController : MonoBehaviour
+public class SpawnerController : NetworkBehaviour
 {
     private float spawningDeltaTime;
 
@@ -15,27 +16,22 @@ public class SpawnerController : MonoBehaviour
     [SerializeField]
     private GameObject prefab;
     
-    // Start is called before the first frame update
     void Start()
     {
         spawningDeltaTime = 2.0f;
         InvokeRepeating("SpawnFlub", .0f, spawningDeltaTime);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void SpawnFlub()
     {
+        Debug.Log("Spawn");
         if (stock > 0)
         {
-            GameObject go = Instantiate(prefab, transform.position, transform.rotation);
-            go.GetComponent<Flub>().type = type;
+            GameObject go = NetworkManager.Instantiate(prefab, transform.position, transform.rotation);
+            NetworkServer.Spawn(go);
             if (orientation == FlubMovement.Direction.Left)
                 go.GetComponent<FlubMovement>().Flip();
+            go.GetComponent<Flub>().setType(type);
             stock--;
         }
     }

@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(CapsuleCollider2D))]
 [RequireComponent(typeof(Flub))]
-public class FlubMovement : MonoBehaviour
+public class FlubMovement : NetworkBehaviour
 {
     public enum Direction {Left , Right};
     
@@ -46,6 +47,8 @@ public class FlubMovement : MonoBehaviour
         cc = GetComponent<CapsuleCollider2D>();
         flub = GetComponent<Flub>();
         animator = GetComponent<Animator>();
+
+        rb.bodyType = isServer ? RigidbodyType2D.Dynamic : RigidbodyType2D.Kinematic;
     }
 
     void FixedUpdate()
@@ -76,7 +79,6 @@ public class FlubMovement : MonoBehaviour
         Vector3 newLocalScale = transform.localScale;
         newLocalScale.x *= -1;
         transform.localScale= newLocalScale;
-        Debug.Log("Fliped !");
     }
 
     private void SlopeCheck()

@@ -52,8 +52,8 @@ MonoBehaviour:
   serverTickRate: 30
   serverBatching: 1
   serverBatchInterval: 0
-  offlineScene: 
-  onlineScene: 
+  offlineScene: Assets/Scenes/Menu.unity
+  onlineScene: Assets/Scenes/TutoStop.unity
   transport: {fileID: 4225351523478742239}
   networkAddress: localhost
   maxConnections: 100
@@ -64,7 +64,8 @@ MonoBehaviour:
     type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
-  spawnPrefabs: []
+  spawnPrefabs:
+  - {fileID: 1072461794295784788, guid: f016030e1a10a014084b3a1a780a8d94, type: 3}
 --- !u!114 &4225351523478742239
 MonoBehaviour:
   m_ObjectHideFlags: 0
