@@ -27,7 +27,7 @@ public class FlubMovement : NetworkBehaviour
     [SerializeField]
     private LayerMask groundLayerMask;
     
-    private Direction direction;
+    public Direction direction;
 
     private Rigidbody2D rb;
     private CapsuleCollider2D cc;
@@ -103,8 +103,9 @@ public class FlubMovement : NetworkBehaviour
         Vector2 origin = new Vector2(x, cc.bounds.center.y);
         RaycastHit2D hit = Physics2D.Raycast(origin, dir, .05f,  groundLayerMask);
         Debug.DrawRay(origin, dir * .05f, Color.red);
-        
-        if (hit)
+        Flub.PowerUp pu = GetComponent<Flub>().powerUp;
+
+        if (hit && pu == 0)
             Flip();
     }
 

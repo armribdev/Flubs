@@ -14,6 +14,7 @@ public class Flub : NetworkBehaviour
 
     public bool selected;
     private Animator animator;
+    private Rigidbody2D rb;
 
     public Type type;
     
@@ -28,8 +29,7 @@ public class Flub : NetworkBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        //type = Type.Blue;
-        //setType(type);
+        rb = GetComponent<Rigidbody2D>();
     }
 
     public void select(bool s) {
@@ -61,6 +61,10 @@ public class Flub : NetworkBehaviour
             case PowerUp.Stop:
                 gameObject.layer = LayerMask.NameToLayer("Environnement");
                 GameObject.Find("GameManager").GetComponent<GameManager>().stoppedFlubs ++;
+                FlubMovement fm = GetComponent<FlubMovement>();
+                if (fm.direction == FlubMovement.Direction.Left)
+                    fm.Flip();
+                rb.bodyType = RigidbodyType2D.Static;
                 break;
             default:
                 break;
