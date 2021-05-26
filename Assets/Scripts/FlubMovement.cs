@@ -111,16 +111,20 @@ public class FlubMovement : NetworkBehaviour
 
     private void FloorCheck()
     {
-        Vector2 origin = new Vector2(cc.bounds.center.x, cc.bounds.min.y);
-        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, .1f,  groundLayerMask);
-        Debug.DrawRay(origin, Vector2.down * .1f, Color.red);
+        Vector2 maxOrigin = new Vector2(cc.bounds.max.x, cc.bounds.min.y);
+        RaycastHit2D maxHit = Physics2D.Raycast(maxOrigin, Vector2.down, .1f,  groundLayerMask);
+        Debug.DrawRay(maxOrigin, Vector2.down * .1f, Color.red);
+
+        Vector2 minOrigin = new Vector2(cc.bounds.min.x, cc.bounds.min.y);
+        RaycastHit2D minHit = Physics2D.Raycast(minOrigin, Vector2.down, .1f,  groundLayerMask);
+        Debug.DrawRay(minOrigin, Vector2.down * .1f, Color.red);
         
-        if (!hit && grounded) {
+        if (!minHit && !maxHit && grounded) {
             grounded = false;
             lastGroudedHeight = transform.position.y;
         }
 
-        if (hit && !grounded) {
+        if ((minHit || maxHit) && !grounded) {
             grounded = true;
             float fallHeight = lastGroudedHeight - transform.position.y;
             if (fallHeight >= maxFallHeightWithoutDying) {
