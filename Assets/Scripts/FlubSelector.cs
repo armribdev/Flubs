@@ -12,6 +12,8 @@ public class FlubSelector : NetworkBehaviour
     private Camera cam;
     private Vector3 startPos;
     private List<Flub> selectedFlubs;
+
+    public int number;
     
     void Awake()
     {
@@ -68,9 +70,13 @@ public class FlubSelector : NetworkBehaviour
             }
             selectedFlubs.Clear();
 
+            GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+            Flub.Type playerType = Flub.Type.Red;
+            if (number == 1) playerType = gm.player1Type;
+            if (number == 2) playerType = gm.player2Type;
             foreach (Collider2D collider2D in collider2DArray) {
                 Flub flub = collider2D.GetComponent<Flub>();
-                if (flub != null) {
+                if (flub != null && flub.type == playerType) {
                     flub.select(true);
                     selectedFlubs.Add(flub);
                     Debug.Log(flub);
