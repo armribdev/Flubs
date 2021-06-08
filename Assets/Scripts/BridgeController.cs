@@ -5,12 +5,19 @@ using UnityEngine;
 public class BridgeController : MonoBehaviour
 {
     bool opening, closing, opened, closed;
+    float turnSpeed = 12.0f;
+    Bounds bounds;
+
+    void Start() {
+        bounds = GetComponent<SpriteRenderer>().bounds;
+    }
+
 
     void Update()
     {
         if (opening && !opened) {
-            // On tourne
-            // si position -> opened
+            transform.RotateAround(new Vector3(bounds.min.x + bounds.size.y / 2, bounds.center.y, 0), Vector3.forward, turnSpeed * Time.deltaTime);
+            if (transform.rotation.eulerAngles.z > 80.0f) opened = true;
         }
 
         else if (closing && !closed) {

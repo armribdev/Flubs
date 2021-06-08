@@ -15,10 +15,11 @@ public class ButtonController : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
     }
 
-    void OnCollisionEnter()
+    void OnCollisionEnter2D()
     {
         Debug.Log("Bouton " + transform.name + " enfoncé");
         sr.sprite = pressed;
         bc.open();
+        GetComponent<CapsuleCollider2D>().enabled = false;
     }
 }
