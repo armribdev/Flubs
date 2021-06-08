@@ -81,18 +81,22 @@ public class FlubSelector : MonoBehaviour
         }
     }
 
-    public void GivePowerUp(int powerUp) {
+    public int GivePowerUp(int powerUp, int maxCount) {
            
         GameObject[] gos = GameObject.FindObjectsOfType(typeof(GameObject)) as GameObject[];
         foreach(GameObject go in gos)
         {
-            if(go.layer == LayerMask.NameToLayer("Controllables"))
+            if(go.layer == LayerMask.NameToLayer("Controllables") && maxCount > 0)
             {
                 Flub flub = go.GetComponent<Flub>();
-                if (flub.selected)
+                if (flub.selected && flub.powerUp == Flub.PowerUp.None) {
                     flub.setPowerUp((Flub.PowerUp)powerUp);
+                    maxCount--;
+                    flub.selected = false;
+                }
             }
         }
+        return maxCount;
         
     }
 
