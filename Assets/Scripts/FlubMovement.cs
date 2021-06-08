@@ -60,7 +60,7 @@ public class FlubMovement : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Environnement")) {
             float horizontalMovement = moveSpeed * Time.deltaTime;
             if (direction == Direction.Left) horizontalMovement *= -1;
-            if (flub.powerUp == Flub.PowerUp.None)
+            if (flub.powerUp == Flub.PowerUp.None || flub.powerUp == Flub.PowerUp.Parachute)
                 Move(horizontalMovement);
         }
     }
@@ -118,13 +118,19 @@ public class FlubMovement : MonoBehaviour
         
         if (!minHit && !maxHit && grounded) {
             grounded = false;
+            if (flub.powerUp == Flub.PowerUp.Parachute) {
+                flub.deployParachute();
+            }
             lastGroudedHeight = transform.position.y;
         }
 
         if ((minHit || maxHit) && !grounded) {
             grounded = true;
             float fallHeight = lastGroudedHeight - transform.position.y;
-            if (fallHeight >= maxFallHeightWithoutDying) {
+            if (flub.powerUp == Flub.PowerUp.Parachute) {
+                flub.removeParachute();
+            }
+            else if (fallHeight >= maxFallHeightWithoutDying) {
                 flub.die();
             }
         }

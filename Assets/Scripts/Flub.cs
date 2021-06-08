@@ -6,7 +6,7 @@ using UnityEngine;
 public class Flub : MonoBehaviour
 {
     public enum Type {Blue, Red};
-    public enum PowerUp {None, Dig, Stop};
+    public enum PowerUp {None, Dig, Stop, Parachute};
 
     public RuntimeAnimatorController redAnimatorController, blueAnimatorController;
 
@@ -49,7 +49,7 @@ public class Flub : MonoBehaviour
 
     public void setPowerUp(PowerUp pu) {
         powerUp = pu;
-        animator.SetInteger("powerUp", (int)pu);
+        if (pu != PowerUp.Parachute) animator.SetInteger("powerUp", (int)pu);
 
         switch(pu) {
             case PowerUp.None:
@@ -92,5 +92,13 @@ public class Flub : MonoBehaviour
     public void exit() {
         Destroy(gameObject);
         GameObject.Find("GameManager").GetComponent<GameManager>().exitedFlubs ++;
+    }
+
+    public void deployParachute() {
+        animator.SetInteger("powerUp", 3);
+    }
+
+    public void removeParachute() {
+        setPowerUp(PowerUp.None);
     }
 }
