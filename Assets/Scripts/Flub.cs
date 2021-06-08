@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
-using UnityEditor.Animations;
+//using UnityEditor.Animations;
 
 [RequireComponent(typeof(Animator))]
 public class Flub : NetworkBehaviour
@@ -10,7 +10,7 @@ public class Flub : NetworkBehaviour
     public enum Type {Blue, Red};
     public enum PowerUp {None, Dig, Stop};
 
-    public AnimatorController redAnimatorController, blueAnimatorController;
+    public RuntimeAnimatorController redAnimatorController, blueAnimatorController;
 
     public bool selected;
     private Animator animator;

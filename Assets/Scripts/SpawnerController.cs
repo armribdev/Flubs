@@ -19,21 +19,17 @@ public class SpawnerController : NetworkBehaviour
     void Start()
     {
         spawningDeltaTime = 2.0f;
-        InvokeRepeating("SpawnFlub", .0f, spawningDeltaTime);
+        //InvokeRepeating("SpawnFlub", .0f, spawningDeltaTime);
     }
 
-    public void SpawnFlub()
+    public GameObject SpawnFlub()
     {
-        Debug.Log("Spawn");
-        if (stock > 0)
-        {
-            GameObject go = NetworkManager.Instantiate(prefab, transform.position, transform.rotation);
-            NetworkServer.Spawn(go);
-            if (orientation == FlubMovement.Direction.Left)
-                go.GetComponent<FlubMovement>().Flip();
-            go.GetComponent<Flub>().setType(type);
-            stock--;
-        }
+        GameObject go = NetworkManager.Instantiate(prefab, transform.position, transform.rotation);
+        if (orientation == FlubMovement.Direction.Left)
+            go.GetComponent<FlubMovement>().Flip();
+        go.GetComponent<Flub>().setType(type);
+        stock--;
+        return go;
     }
 
     private void OnDrawGizmos()

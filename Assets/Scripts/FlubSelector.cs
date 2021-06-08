@@ -85,7 +85,6 @@ public class FlubSelector : NetworkBehaviour
         }
     }
 
-
     public void localGivePowerUp(int powerUp) {
     
         Debug.Log("1");
