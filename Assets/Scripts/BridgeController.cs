@@ -27,7 +27,7 @@ public class BridgeController : MonoBehaviour
 
     public void close() {
         Debug.Log("Fermeture du pont " + transform.name);
-        open = false;
+        opened = false;
         closing = true;
     }
 }

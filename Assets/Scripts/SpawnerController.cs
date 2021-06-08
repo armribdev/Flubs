@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Mirror;
 
-public class SpawnerController : NetworkBehaviour
+public class SpawnerController : MonoBehaviour
 {
     private float spawningDeltaTime;
 
@@ -19,17 +18,18 @@ public class SpawnerController : NetworkBehaviour
     void Start()
     {
         spawningDeltaTime = 2.0f;
-        //InvokeRepeating("SpawnFlub", .0f, spawningDeltaTime);
+        InvokeRepeating("SpawnFlub", .0f, spawningDeltaTime);
     }
 
-    public GameObject SpawnFlub()
+    public void SpawnFlub()
     {
-        GameObject go = NetworkManager.Instantiate(prefab, transform.position, transform.rotation);
-        if (orientation == FlubMovement.Direction.Left)
-            go.GetComponent<FlubMovement>().Flip();
-        go.GetComponent<Flub>().setType(type);
-        stock--;
-        return go;
+        if (stock > 0) {
+            GameObject go = Instantiate(prefab, transform.position, transform.rotation);
+            if (orientation == FlubMovement.Direction.Left)
+                go.GetComponent<FlubMovement>().Flip();
+            go.GetComponent<Flub>().setType(type);
+            stock--;
+        }
     }
 
     private void OnDrawGizmos()

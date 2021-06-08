@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Mirror;
 
-public class FlubSelector : NetworkBehaviour
+public class FlubSelector : MonoBehaviour
 {
     [SerializeField] private GameObject selectionAreaPrefab;
     private Transform selectionAreaTransform;
@@ -71,32 +70,19 @@ public class FlubSelector : NetworkBehaviour
             selectedFlubs.Clear();
 
             GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-            Flub.Type playerType = Flub.Type.Red;
-            if (number == 1) playerType = gm.player1Type;
-            if (number == 2) playerType = gm.player2Type;
             foreach (Collider2D collider2D in collider2DArray) {
                 Flub flub = collider2D.GetComponent<Flub>();
-                if (flub != null && flub.type == playerType) {
+                if (flub != null) {
                     flub.select(true);
                     selectedFlubs.Add(flub);
-                    Debug.Log(flub);
+                    Debug.Log("Selection du flub " + flub);
                 }
             }
         }
     }
 
-    public void localGivePowerUp(int powerUp) {
-    
-        Debug.Log("1");
-        
-        CmdGivePowerUp(powerUp);
-    }
-
-    [Command]
-    public void CmdGivePowerUp(int powerUp) {
-
-        Debug.Log("2");
-            
+    public void GivePowerUp(int powerUp) {
+           
         GameObject[] gos = GameObject.FindObjectsOfType(typeof(GameObject)) as GameObject[];
         foreach(GameObject go in gos)
         {

@@ -1,11 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Mirror;
-//using UnityEditor.Animations;
 
 [RequireComponent(typeof(Animator))]
-public class Flub : NetworkBehaviour
+public class Flub : MonoBehaviour
 {
     public enum Type {Blue, Red};
     public enum PowerUp {None, Dig, Stop};
@@ -50,7 +48,6 @@ public class Flub : NetworkBehaviour
     }
 
     public void setPowerUp(PowerUp pu) {
-        Debug.Log("3");
         powerUp = pu;
         animator.SetInteger("powerUp", (int)pu);
 
@@ -73,13 +70,13 @@ public class Flub : NetworkBehaviour
 
     public void setType(Type t) {
         type = t;
-        NetworkAnimator na = GetComponent<NetworkAnimator>();
+        Animator animator = GetComponent<Animator>();
         switch(t) {
             case Type.Red:
-                na.animator.runtimeAnimatorController = redAnimatorController;
+                animator.runtimeAnimatorController = redAnimatorController;
                 break;
             case Type.Blue:
-                na.animator.runtimeAnimatorController = blueAnimatorController;
+                animator.runtimeAnimatorController = blueAnimatorController;
                 break;
             default:
                 break;
