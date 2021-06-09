@@ -67,7 +67,7 @@ public class FlubMovement : MonoBehaviour
 
     private void Move(float horizontalMovement) {
         Vector3 target = new Vector2 (horizontalMovement, rb.velocity.y);
-        rb.velocity = Vector3.SmoothDamp(rb.velocity, target, ref velocity, .05f);
+        rb.velocity = target;
     }
 
     public void Flip()
