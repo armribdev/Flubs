@@ -5,19 +5,27 @@ using UnityEngine;
 public class BridgeController : MonoBehaviour
 {
     bool opening, closing, opened, closed;
-    float turnSpeed = 12.0f;
+    public float turnSpeed = 12.0f;
     Bounds bounds;
+
+    private float initialRotation;
+    public float rotation = 80.0f;
+
+    private Vector3 rotationPoint;
+
 
     void Start() {
         bounds = GetComponent<SpriteRenderer>().bounds;
+        initialRotation = transform.rotation.eulerAngles.z;
+        rotationPoint = transform.Find("RotationPoint").transform.position;
     }
 
 
     void Update()
     {
         if (opening && !opened) {
-            transform.RotateAround(new Vector3(bounds.min.x + bounds.size.y / 2, bounds.center.y, 0), Vector3.forward, turnSpeed * Time.deltaTime);
-            if (transform.rotation.eulerAngles.z > 80.0f) opened = true;
+            transform.RotateAround(rotationPoint, Vector3.forward, turnSpeed * Time.deltaTime);
+            if (transform.rotation.eulerAngles.z - initialRotation > rotation) opened = true;
         }
 
         else if (closing && !closed) {
