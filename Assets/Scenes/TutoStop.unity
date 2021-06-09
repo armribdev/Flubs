@@ -226,6 +226,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 456189926}
+    - target: {fileID: 295853022, guid: cd9ba1d0f4ca393489ab237c5dfa4d80, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: restart
+      objectReference: {fileID: 0}
     - target: {fileID: 1756793387, guid: cd9ba1d0f4ca393489ab237c5dfa4d80, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -246,6 +250,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 456189926}
+    - target: {fileID: 1756793388, guid: cd9ba1d0f4ca393489ab237c5dfa4d80, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: tooglePlay
+      objectReference: {fileID: 0}
     - target: {fileID: 697597266438360876, guid: cd9ba1d0f4ca393489ab237c5dfa4d80,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1537,6 +1545,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5964235083818580317, guid: 9321fac64c2945b4aa6faf17927ce1e0,
+        type: 3}
+      propertyPath: m_Name
+      value: Spawner2
+      objectReference: {fileID: 0}
     - target: {fileID: 395303210103554984, guid: 189f89dd97a39ed49b6456783905b3df,
         type: 3}
       propertyPath: sceneId
@@ -1606,11 +1619,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5964235083818580317, guid: 9321fac64c2945b4aa6faf17927ce1e0,
-        type: 3}
-      propertyPath: m_Name
-      value: Spawner2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 189f89dd97a39ed49b6456783905b3df, type: 3}
