@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5439248811465444303}
-  - component: {fileID: 5439248811465444296}
+  - component: {fileID: 5392424337764310586}
   - component: {fileID: 212712441877984339}
   m_Layer: 0
   m_Name: GameManager
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5439248811465444296
+--- !u!114 &5392424337764310586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,20 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74778d27dac0a154b83beeedd60bc3d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AffichageFin: {fileID: 0}
+  AffichageFin: {fileID: 1661219958285647922, guid: d07ed1ee063dddf41b77e79ba8f46537,
+    type: 3}
   endText: {fileID: 0}
   levelOver: 0
   flubToInvoke: 0
   stoppedFlubs: 0
   deadFlubs: 0
   exitedFlubs: 0
-  levelWidth: 43
-  levelHeight: 20
-  player1Type: 1
-  player2Type: 0
-  spawnerControllers:
-  - {fileID: 0}
-  - {fileID: 0}
+  levelWidth: 0
+  levelHeight: 0
+  spawnerControllers: []
 --- !u!82 &212712441877984339
 AudioSource:
   m_ObjectHideFlags: 0

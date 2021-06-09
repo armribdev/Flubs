@@ -7,9 +7,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject AffichageFin;
-    public Text endText;
+    private Text endText;
 
     public bool levelOver;
+    private bool levelWasOver;
     public int flubToInvoke;
     public int stoppedFlubs;
     public int deadFlubs;
@@ -30,22 +31,26 @@ public class GameManager : MonoBehaviour
         }
 
         endTime = 0;
-        endText.text = "";  // On affiche un message vide, ce qui n'affiche rien
+        endText = AffichageFin.transform.Find("Panel").Find("Text").GetComponent<Text>();
+        levelWasOver = false;
     }
 
     void Update()
     {
-        if (levelCompleted())
+        if (levelCompleted()) levelOver = true;
+        if (levelOver && !levelWasOver)
         {
+            Debug.Log("Terminé");
             if (endTime == 0)
             {
                 endTime = Time.timeSinceLevelLoad;
                 endText.text = "Fin de la partie !\nVous avez sauvés " + exitedFlubs.ToString() + " Flubs sur " + flubToInvoke.ToString();
-                AffichageFin.SetActive(true);
+                Instantiate(AffichageFin);
             }
             if (Time.timeSinceLevelLoad - endTime > 5)  // On attend 5s avant de revenir au menu
                 SceneManager.LoadScene(0);
         }
+        levelWasOver = levelOver;
     }
 
     void OnDrawGizmos()
