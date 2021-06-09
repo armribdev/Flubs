@@ -10,7 +10,6 @@ public class Flub : MonoBehaviour
 
     public RuntimeAnimatorController redAnimatorController, blueAnimatorController;
 
-    public GameObject shouldReturn;
 
     public bool selected;
     private Animator animator;
@@ -59,7 +58,8 @@ public class Flub : MonoBehaviour
                 break;
             case PowerUp.Stop:
                 gameObject.layer = LayerMask.NameToLayer("Environnement");
-                //shouldReturn.SetActive(true);
+                GetComponent<BoxCollider2D>().enabled = true;
+                GetComponent<CapsuleCollider2D>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<GameManager>().stoppedFlubs ++;
                 FlubMovement fm = GetComponent<FlubMovement>();
                 if (fm.direction == FlubMovement.Direction.Left)
