@@ -53,7 +53,7 @@ public class Flub : MonoBehaviour
 
         switch(pu) {
             case PowerUp.None:
-                gameObject.layer = LayerMask.NameToLayer("Controllable");
+                gameObject.layer = LayerMask.NameToLayer("Controllables");
                 break;
             case PowerUp.Stop:
                 gameObject.layer = LayerMask.NameToLayer("Environnement");
