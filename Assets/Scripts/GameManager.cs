@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     private float endTime;
 
+    private bool playing;
+
     void Start()
     {
         flubToInvoke = 0;
@@ -33,6 +35,7 @@ public class GameManager : MonoBehaviour
         endTime = 0;
         endText = AffichageFin.transform.Find("Panel").Find("Text").GetComponent<Text>();
         levelWasOver = false;
+        levelPlay(false);
     }
 
     void Update()
@@ -62,6 +65,19 @@ public class GameManager : MonoBehaviour
 
     public bool levelCompleted() {
         return stoppedFlubs + deadFlubs + exitedFlubs == flubToInvoke;
+    }
+
+    public void tooglePlay() {
+        levelPlay(!playing);
+    }
+    
+    public void levelPlay(bool play) {
+        playing = play;
+        Time.timeScale = playing ? 1 : 0;
+    }
+
+    public void restart() {
+         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }
