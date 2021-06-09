@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Mirror;
 
-public class SpawnerController : NetworkBehaviour
+public class SpawnerController : MonoBehaviour
 {
     private float spawningDeltaTime;
 
@@ -24,11 +23,8 @@ public class SpawnerController : NetworkBehaviour
 
     public void SpawnFlub()
     {
-        Debug.Log("Spawn");
-        if (stock > 0)
-        {
-            GameObject go = NetworkManager.Instantiate(prefab, transform.position, transform.rotation);
-            NetworkServer.Spawn(go);
+        if (stock > 0) {
+            GameObject go = Instantiate(prefab, transform.position, transform.rotation);
             if (orientation == FlubMovement.Direction.Left)
                 go.GetComponent<FlubMovement>().Flip();
             go.GetComponent<Flub>().setType(type);

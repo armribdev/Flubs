@@ -1,13 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Mirror;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(CapsuleCollider2D))]
 [RequireComponent(typeof(Flub))]
-public class FlubMovement : NetworkBehaviour
+public class FlubMovement : MonoBehaviour
 {
     public enum Direction {Left , Right};
     
@@ -47,8 +46,6 @@ public class FlubMovement : NetworkBehaviour
         cc = GetComponent<CapsuleCollider2D>();
         flub = GetComponent<Flub>();
         animator = GetComponent<Animator>();
-
-        rb.bodyType = isServer ? RigidbodyType2D.Dynamic : RigidbodyType2D.Kinematic;
     }
 
     void FixedUpdate()

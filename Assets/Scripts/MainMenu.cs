@@ -7,10 +7,15 @@ public class MainMenu : MonoBehaviour
 {
     public void Niveau1()
     {
-		SceneManager.LoadScene(1);  // S'assurer que le niveau 1 est bien en position 1 dans le build
+		SceneManager.LoadScene(1);  // S'assurer que TutoStop est bien en position 1 dans le build
 	}
 
-	public void QuitGame()
+    public void Niveau2()
+    {
+        SceneManager.LoadScene(2);  // S'assurer que Niveau1 est bien en position 1 dans le build
+    }
+
+    public void QuitGame()
     {
         Debug.Log("QUIT !");
         Application.Quit();
