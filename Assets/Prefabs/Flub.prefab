@@ -157,7 +157,7 @@ MonoBehaviour:
   moveSpeed: 50
   slopeCheckDistance: 100
   maxFallHeightWithoutDying: 5
-  maxFlipAngle: 60
+  maxFlipAngle: 80
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 256
