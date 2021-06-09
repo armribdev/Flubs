@@ -310,8 +310,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: tooglePlay
+      - m_Target: {fileID: 3159927385170106912}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -443,6 +443,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6561aee58d43bba499066f4c8c350c91, type: 3}
+--- !u!1 &3159927385170106912 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4385792893273054288, guid: 6561aee58d43bba499066f4c8c350c91,
+    type: 3}
+  m_PrefabInstance: {fileID: 1659337115851212400}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8868320485820833187 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7788338038228474835, guid: 6561aee58d43bba499066f4c8c350c91,

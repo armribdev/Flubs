@@ -9,7 +9,8 @@ public class BridgeController : MonoBehaviour
     Bounds bounds;
 
     private float initialRotation;
-    public float rotation = 80.0f;
+    public float endAngle = 80.0f;
+    public bool reversed;
 
     private Vector3 rotationPoint;
 
@@ -23,9 +24,12 @@ public class BridgeController : MonoBehaviour
 
     void Update()
     {
+        Vector3 dir = (reversed) ? -Vector3.forward  : Vector3.forward;
         if (opening && !opened) {
-            transform.RotateAround(rotationPoint, Vector3.forward, turnSpeed * Time.deltaTime);
-            if (transform.rotation.eulerAngles.z - initialRotation > rotation) opened = true;
+            Debug.Log(transform.rotation.eulerAngles.z);
+            transform.RotateAround(rotationPoint, dir, turnSpeed * Time.deltaTime);
+            if (!reversed && transform.rotation.eulerAngles.z > endAngle) opened = true;
+            if (reversed && transform.rotation.eulerAngles.z - 360 < endAngle) opened = true;
         }
 
         else if (closing && !closed) {

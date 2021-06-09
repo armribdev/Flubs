@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3149944730905353200}
   - component: {fileID: 3149944730905352975}
   - component: {fileID: 568546088}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1612264193828466346}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RotationPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -135,4 +135,13 @@ public class FlubMovement : MonoBehaviour
             }
         }
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision.gameObject.tag == "ShouldFlip" );
+        if (collision.gameObject.tag == "ShouldFlip") {
+            Flip();
+        }
+
+    }
 }
