@@ -130,6 +130,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2770714478489108955}
     m_Modifications:
+    - target: {fileID: 3069407172287852258, guid: c921b0b14c5741842b8c413bbbbb4f15,
+        type: 3}
+      propertyPath: flubSelector
+      value: 
+      objectReference: {fileID: 8429189412878490405}
     - target: {fileID: 4291956025737116248, guid: c921b0b14c5741842b8c413bbbbb4f15,
         type: 3}
       propertyPath: m_AnchorMax.y

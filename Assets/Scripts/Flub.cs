@@ -6,7 +6,7 @@ using UnityEngine;
 public class Flub : MonoBehaviour
 {
     public enum Type {Blue, Red};
-    public enum PowerUp {None, Dig, Stop, Parachute};
+    public enum PowerUp {None, Dig, Stop, Parachute, Steps};
 
     public RuntimeAnimatorController redAnimatorController, blueAnimatorController;
 
