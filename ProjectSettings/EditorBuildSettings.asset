@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TutoStop.unity
     guid: 7dd52c2f64112fb4d829ebddb69c0c94
-  - enabled: 0
-    path: Assets/Scenes/TutoCreuser.unity
-    guid: 846ca820cbed0024db60d49239b413a1
+  - enabled: 1
+    path: Assets/Scenes/Niveau1.unity
+    guid: c591e50b90486464ba19c4e39dee0497
   m_configObjects: {}

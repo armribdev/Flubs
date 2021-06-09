@@ -15,9 +15,10 @@ MonoBehaviour:
   m_Angles:
   - m_Start: -65
     m_End: 65
-    m_Order: 0
+    m_Order: 10
     m_Sprites:
     - {fileID: 21300000, guid: 1502c1f5d345e6247b67c6526ff77e1d, type: 3}
+    - {fileID: 0}
   - m_Start: -295
     m_End: -65
     m_Order: 0
