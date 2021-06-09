@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     private Text endText;
 
     public bool levelOver;
-    private bool levelWasOver;
     public int flubToInvoke;
     public int stoppedFlubs;
     public int deadFlubs;
@@ -34,18 +33,17 @@ public class GameManager : MonoBehaviour
 
         endTime = 0;
         endText = AffichageFin.transform.Find("Panel").Find("Text").GetComponent<Text>();
-        levelWasOver = false;
         levelPlay(false);
     }
 
     void Update()
     {
         if (levelCompleted()) levelOver = true;
-        if (levelOver && !levelWasOver)
+        if (levelOver)
         {
-            Debug.Log("Terminé");
             if (endTime == 0)
             {
+                Debug.Log("Terminé");
                 endTime = Time.timeSinceLevelLoad;
                 endText.text = "Fin de la partie !\nVous avez sauvés " + exitedFlubs.ToString() + " Flubs sur " + flubToInvoke.ToString();
                 Instantiate(AffichageFin);
@@ -53,7 +51,6 @@ public class GameManager : MonoBehaviour
             if (Time.timeSinceLevelLoad - endTime > 5)  // On attend 5s avant de revenir au menu
                 SceneManager.LoadScene(0);
         }
-        levelWasOver = levelOver;
     }
 
     void OnDrawGizmos()
