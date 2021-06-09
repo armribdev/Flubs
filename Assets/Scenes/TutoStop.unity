@@ -434,18 +434,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd9ba1d0f4ca393489ab237c5dfa4d80, type: 3}
---- !u!114 &1219418691 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1661219959635677143, guid: d07ed1ee063dddf41b77e79ba8f46537,
-    type: 3}
-  m_PrefabInstance: {fileID: 1661219958688929172}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1449911711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1704,11 +1692,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5964235083818580317, guid: 9321fac64c2945b4aa6faf17927ce1e0,
-        type: 3}
-      propertyPath: m_Name
-      value: Spawner2
-      objectReference: {fileID: 0}
     - target: {fileID: 395303210103554984, guid: 189f89dd97a39ed49b6456783905b3df,
         type: 3}
       propertyPath: sceneId
@@ -1779,6 +1762,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5964235083818580317, guid: 9321fac64c2945b4aa6faf17927ce1e0,
+        type: 3}
+      propertyPath: m_Name
+      value: Spawner2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 189f89dd97a39ed49b6456783905b3df, type: 3}
 --- !u!1001 &5439248810946983579
@@ -1788,11 +1776,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5392424337764310586, guid: 8bdad2ba8af3919449ad9c40464e3489,
+        type: 3}
+      propertyPath: levelWidth
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 5392424337764310586, guid: 8bdad2ba8af3919449ad9c40464e3489,
+        type: 3}
+      propertyPath: levelHeight
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5392424337764310586, guid: 8bdad2ba8af3919449ad9c40464e3489,
+        type: 3}
+      propertyPath: spawnerControllers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5392424337764310586, guid: 8bdad2ba8af3919449ad9c40464e3489,
+        type: 3}
+      propertyPath: spawnerControllers.Array.data[0]
+      value: 
+      objectReference: {fileID: 5964235083719705876}
+    - target: {fileID: 5392424337764310586, guid: 8bdad2ba8af3919449ad9c40464e3489,
+        type: 3}
+      propertyPath: spawnerControllers.Array.data[1]
+      value: 
+      objectReference: {fileID: 5964235081896862880}
     - target: {fileID: 5439248811465444296, guid: 8bdad2ba8af3919449ad9c40464e3489,
         type: 3}
       propertyPath: endText
       value: 
-      objectReference: {fileID: 1219418691}
+      objectReference: {fileID: 0}
     - target: {fileID: 5439248811465444296, guid: 8bdad2ba8af3919449ad9c40464e3489,
         type: 3}
       propertyPath: AffichageFin
