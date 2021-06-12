@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void ChargerNiveau(int num)
     {
-        SceneManager.LoadScene(num);  // S'assurer que TutoStop est bien en position 1 dans le build
+        SceneManager.LoadScene(num);
     }
 
     public void QuitGame()

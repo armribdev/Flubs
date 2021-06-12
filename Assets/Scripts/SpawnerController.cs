@@ -18,7 +18,7 @@ public class SpawnerController : MonoBehaviour
     void Start()
     {
         spawningDeltaTime = 2.0f;
-        InvokeRepeating("SpawnFlub", .0f, spawningDeltaTime);
+        InvokeRepeating("SpawnFlub", 3.0f, spawningDeltaTime);
     }
 
     public void SpawnFlub()
