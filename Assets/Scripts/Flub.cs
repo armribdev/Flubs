@@ -98,10 +98,12 @@ public class Flub : MonoBehaviour
     }
 
     public void deployParachute() {
+        Debug.Log("Parachute déployé !");
         animator.SetInteger("powerUp", 3);
     }
 
     public void removeParachute() {
+        Debug.Log("Parachute retiré !");
         setPowerUp(PowerUp.None);
     }
 }

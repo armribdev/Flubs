@@ -109,11 +109,11 @@ public class FlubMovement : MonoBehaviour
     private void FloorCheck()
     {
         Vector2 maxOrigin = new Vector2(cc.bounds.max.x, cc.bounds.min.y);
-        RaycastHit2D maxHit = Physics2D.Raycast(maxOrigin, Vector2.down, .1f,  groundLayerMask);
+        RaycastHit2D maxHit = Physics2D.Raycast(maxOrigin, Vector2.down, .4f,  groundLayerMask);
         Debug.DrawRay(maxOrigin, Vector2.down * .1f, Color.red);
 
         Vector2 minOrigin = new Vector2(cc.bounds.min.x, cc.bounds.min.y);
-        RaycastHit2D minHit = Physics2D.Raycast(minOrigin, Vector2.down, .1f,  groundLayerMask);
+        RaycastHit2D minHit = Physics2D.Raycast(minOrigin, Vector2.down, .4f,  groundLayerMask);
         Debug.DrawRay(minOrigin, Vector2.down * .1f, Color.red);
         
         if (!minHit && !maxHit && grounded) {
