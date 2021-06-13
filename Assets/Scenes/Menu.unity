@@ -203,7 +203,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 520152664}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.23360863
+  m_Size: 0.22028781
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -696,10 +696,10 @@ RectTransform:
   m_Father: {fileID: 1486555355}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 350, y: -324.78052}
-  m_SizeDelta: {x: 140, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &150949720
 MonoBehaviour:
@@ -1377,10 +1377,10 @@ RectTransform:
   m_Father: {fileID: 1486555355}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 350, y: -197.39026}
-  m_SizeDelta: {x: 700, y: 174.78052}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &409066492
 MonoBehaviour:
@@ -1776,8 +1776,8 @@ RectTransform:
   m_Father: {fileID: 786203499}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.7663914}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2111,10 +2111,10 @@ RectTransform:
   m_Father: {fileID: 1486555355}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 350, y: 0}
-  m_SizeDelta: {x: 400, y: 90}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &739052032
 MonoBehaviour:
@@ -2829,9 +2829,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &986764508
 MonoBehaviour:
@@ -3693,7 +3693,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1405399185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3879,7 +3879,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1486555355
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4036,7 +4036,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 748.17664}
+  m_SizeDelta: {x: 0, y: 793.41895}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1909294818
 MonoBehaviour:
@@ -4062,9 +4062,12 @@ MonoBehaviour:
     D'aquaro (Responsable Conception)\n\nMerci \xE0 M. Nicolas Esposito pour ses
     conseils.\n\n\nCr\xE9dit AUDIO\n\nMenu principal : \nEveryone is so alive, par
     Loyalty Freak Music (CC0 1.0 Public Domain)\nJeu : \nSneaky Snitch, par Kevin
-    MacLeod (CC BY 3.0)\n\n\nCr\xE9dit GRAPHISME\n\nDessins vecteurs touv\xE9s sur
-    fr.freepicks.com et modifi\xE9s :\nFond - \nTerrain - 0melapics\nHerbe -\nBombe
-    - \nChantier - \nBoutons - \nFlammes - \nArbre - \nStatue - "
+    MacLeod (CC BY 3.0)\n\nBruitages & effets sous Mixkit Sound Effects Free License
+    par Mixkit, t\xE9l\xE9charg\xE9s depuis mixkit.co\n\n\nCr\xE9dit GRAPHISME\n\nDessins
+    vecteurs sous Licence Freepicks t\xE9l\xE9charg\xE9s depuis fr.freepicks.com
+    et modifi\xE9s :\nFond - pikisuperstar\r\nTerrain - 0melapics\r\nArche - upklyak\r\nBoutons
+    - jcomp\r\nBombe - freepic \r\nParachute - macrovector \r\nFlammes - macrovector
+    \r\nArbre - brgfx\r\nStatue - upklyak \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
