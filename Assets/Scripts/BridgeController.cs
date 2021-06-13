@@ -8,9 +8,8 @@ public class BridgeController : MonoBehaviour
     public float turnSpeed = 12.0f;
     Bounds bounds;
 
-    private float initialRotation;
-    public float endAngle = 80.0f;
-    public bool reversed;
+    private float initialRotation, targetRotation;
+    public float flipAngle;
 
     private Vector3 rotationPoint;
 
@@ -18,18 +17,25 @@ public class BridgeController : MonoBehaviour
     void Start() {
         bounds = GetComponent<SpriteRenderer>().bounds;
         initialRotation = transform.rotation.eulerAngles.z;
+        targetRotation = initialRotation + flipAngle;
+        if (targetRotation < 0) targetRotation += 360;
+
         rotationPoint = transform.Find("RotationPoint").transform.position;
     }
 
 
     void Update()
     {
-        Vector3 dir = (reversed) ? -Vector3.forward  : Vector3.forward;
         if (opening && !opened) {
             Debug.Log(transform.rotation.eulerAngles.z);
-            transform.RotateAround(rotationPoint, dir, turnSpeed * Time.deltaTime);
-            if (!reversed && transform.rotation.eulerAngles.z > endAngle) opened = true;
-            if (reversed && transform.rotation.eulerAngles.z - 360 < endAngle) opened = true;
+            if (flipAngle > 0) {
+                transform.RotateAround(rotationPoint, Vector3.forward, turnSpeed * Time.deltaTime);
+                if (transform.rotation.eulerAngles.z > targetRotation) opened = true;
+            }
+            else {
+                transform.RotateAround(rotationPoint, -Vector3.forward, turnSpeed * Time.deltaTime);
+                if (transform.rotation.eulerAngles.z < targetRotation) opened = true;
+            }
         }
 
         else if (closing && !closed) {
