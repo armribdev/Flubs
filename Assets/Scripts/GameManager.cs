@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject AffichageFin;
-    private Text endText;
+    private Text nbMorts;
+    private Text nbStop;
+    private Text nbSauves;
 
     public bool levelOver;
     public int flubToInvoke;
@@ -32,8 +34,10 @@ public class GameManager : MonoBehaviour
         }
 
         endTime = 0;
-        endText = AffichageFin.transform.Find("Panel").Find("Text").GetComponent<Text>();
-        levelPlay(false);
+        nbMorts = AffichageFin.transform.Find("Panel").Find("NbMorts").GetComponent<Text>();
+        nbStop = AffichageFin.transform.Find("Panel").Find("NbStop").GetComponent<Text>();
+        nbSauves = AffichageFin.transform.Find("Panel").Find("NbSauves").GetComponent<Text>();
+        //levelPlay(false);
     }
 
     void Update()
@@ -44,12 +48,17 @@ public class GameManager : MonoBehaviour
             if (endTime == 0)
             {
                 Debug.Log("Terminé");
+                Time.timeScale = 1;  // Si jamais le temps est accéléré lorsque le niveau se termine
                 endTime = Time.timeSinceLevelLoad;
-                endText.text = "Fin de la partie !\nVous avez sauvés " + exitedFlubs.ToString() + " Flubs sur " + flubToInvoke.ToString();
+                nbMorts.text = deadFlubs.ToString();
+                nbStop.text = stoppedFlubs.ToString();
+                nbSauves.text = exitedFlubs.ToString();
                 Instantiate(AffichageFin);
             }
+            /*
             if (Time.timeSinceLevelLoad - endTime > 5)  // On attend 5s avant de revenir au menu
                 SceneManager.LoadScene(0);
+            */
         }
     }
 
