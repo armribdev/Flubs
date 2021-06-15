@@ -24,7 +24,7 @@ public class SpawnerController : MonoBehaviour
     public void SpawnFlub()
     {
         if (stock > 0) {
-            GameObject go = Instantiate(prefab, transform.position, transform.rotation);
+            GameObject go = Instantiate(prefab, new Vector3(transform.position.x, transform.position.y, -1f), transform.rotation);
             if (orientation == FlubMovement.Direction.Left)
                 go.GetComponent<FlubMovement>().Flip();
             go.GetComponent<Flub>().setType(type);
