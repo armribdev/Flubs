@@ -20,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TutoPontLevis.unity
     guid: 97fb98887c46d694cb461b46221cc999
+  - enabled: 0
+    path: Assets/Scenes/Video/Marche.unity
+    guid: acba1e6828a785c4db6a9011716122ec
+  - enabled: 0
+    path: Assets/Scenes/Video/Spawn.unity
+    guid: a6aa86d3a5ae2a4428d735fb2ec0fd61
+  - enabled: 0
+    path: Assets/Scenes/Video/Fire water.unity
+    guid: 37175e2547bd8574186ac0b6160a15cf
   m_configObjects: {}
